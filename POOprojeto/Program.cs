@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace POOprojeto
 {
     internal static class Program
@@ -16,7 +18,11 @@ namespace POOprojeto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //DatabaseConnection dbConnector = new DatabaseConnection();
+            //dbConnector.ConnectToDatabase();
+            Application.Run(new AutenticacaoForm());
+            //AutenticacaoForm form1 = new AutenticacaoForm();
+            //form1.Show();           
         }
     }
 }
