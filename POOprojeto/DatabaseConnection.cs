@@ -43,12 +43,13 @@ namespace POOprojeto
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);               
                 return false;
             }
         }
         public bool CheckCredentials(string username, string password)
         {
+            
             if (username == "root")  //admin nao esta em uso para ja na db
             {
                 return false;
@@ -62,9 +63,16 @@ namespace POOprojeto
                 try
                 {
                     connection.ConnectionString = GetConnectionString();
-                    //connection.Open();
+                    if (OpenConnection())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }    
                     //MessageBox.Show("Connection successful");
-                    return true;
+                    
                 }
                 catch (MySqlException ex)
                 {
@@ -73,7 +81,8 @@ namespace POOprojeto
                 }
                 finally
                 {
-                    //connection.Close();
+                    connection.Close();
+                    Console.WriteLine("test)");
                 }
             }
 
@@ -153,6 +162,49 @@ namespace POOprojeto
             }
 
             return clientes;
+        }
+
+
+        //ADD 
+        public bool AddNewTicketToDb(string nomeCliente, string ticketDescricao, DateTime dataCriacao, string tipoAssistencia, string estadoAssistencia)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO Ticket (nomeCliente, ticketDescricao, dataCriacao, tipoAssistencia, estadoAssistencia) VALUES (@nomeCliente, @ticketDescricao, @dataCriacao, @tipoAssistencia, @estadoAssistencia)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@nomeCliente", nomeCliente);
+                cmd.Parameters.AddWithValue("@ticketDescricao", ticketDescricao);
+                cmd.Parameters.AddWithValue("@dataCriacao", dataCriacao);
+                cmd.Parameters.AddWithValue("@tipoAssistencia", tipoAssistencia);
+                cmd.Parameters.AddWithValue("@estadoAssistencia", estadoAssistencia);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }

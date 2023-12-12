@@ -39,7 +39,6 @@ namespace POOprojeto
             {
                 MessageBox.Show("Invalid username or password.");
             }
-
         }
     }
 }

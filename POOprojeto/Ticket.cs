@@ -38,5 +38,20 @@ namespace POOprojeto
             TipoAssistencia = tipoAssistencia;
             EstadoAssistencia = estadoAssistencia;
         }
+
+        private readonly DatabaseConnection dbConnection;
+
+        public Ticket(DatabaseConnection connection)
+        {
+            dbConnection = connection;
+        }
+        public void AddTicket(string nomeCliente, string ticketDescricao, DateTime dataCriacao, string tipoAssistencia, string estadoAssistencia)
+        {
+            //if para caso der return falso dar exception
+            if (!dbConnection.AddNewTicketToDb(nomeCliente, ticketDescricao, dataCriacao, tipoAssistencia, estadoAssistencia))
+            {
+                throw new Exception("Failed to add ticket to the database.");
+            }
+        }
     }
 }

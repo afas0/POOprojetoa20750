@@ -12,12 +12,16 @@ namespace POOprojeto
 {
     public partial class AddTicketForm : Form
     {
+        
         private NovoClienteForm novoClienteForm;   //para o addTicketForm assumir valores
+        private readonly Ticket ticket;
+        DatabaseConnection dbConnection = new DatabaseConnection();
+
         public AddTicketForm()
         {
 
             // Create an instance of DatabaseConnection
-            DatabaseConnection dbConnection = new DatabaseConnection();
+
 
             // Call the RetrieveClientes method to retrieve the list of Clientes
             List<string> listaNomesClientes = dbConnection.RetrieveClients();
@@ -27,6 +31,9 @@ namespace POOprojeto
             }
             InitializeComponent();
             comboBox2.DataSource = listaNomesClientes;
+            ticket = new Ticket(dbConnection);
+
+
         }
 
         private void buttonAddCliente_Click(object sender, EventArgs e)
@@ -49,7 +56,21 @@ namespace POOprojeto
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // do nothing yet
+            string ticketNome = comboBox2.Text;
+            string ticketDescricao= richTextBox1.Text;
+            DateTime ticketData = DateTime.Now;
+            string ticketTipo = comboBox3.Text;
+            string ticketEstado = "Aberto";
+            try
+            {
+
+                ticket.AddTicket(ticketNome, ticketDescricao, ticketData, ticketTipo, ticketEstado);
+                MessageBox.Show("Ticket added successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
