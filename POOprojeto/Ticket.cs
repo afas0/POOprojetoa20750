@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace POOprojeto
 {
-    internal class Ticket
+    public class Ticket
     {
         // Properties with attributes
         public int TicketId { get; set; }
@@ -45,6 +45,12 @@ namespace POOprojeto
         {
             dbConnection = connection;
         }
+
+        public Ticket()
+        {
+            // é necessario um constructer vazio para que na databaseconnection class a lista de retrieve tickets funciona Ticket ticket = new Ticket()
+        }
+
         public void AddTicket(string nomeCliente, string ticketDescricao, DateTime dataCriacao, string tipoAssistencia, string estadoAssistencia)
         {
             //if para caso der return falso dar exception

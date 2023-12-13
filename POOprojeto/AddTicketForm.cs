@@ -27,7 +27,7 @@ namespace POOprojeto
             List<string> listaNomesClientes = dbConnection.RetrieveClients();
             foreach (var item in listaNomesClientes)
             {
-                Console.WriteLine(item);  //depois apagar este for each era so pa testarr
+                Console.WriteLine(item);  //depois apagar este foreach era so pa testarr
             }
             InitializeComponent();
             comboBox2.DataSource = listaNomesClientes;

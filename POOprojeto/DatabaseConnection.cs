@@ -43,13 +43,13 @@ namespace POOprojeto
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine("Error: " + ex.Message);               
+                Console.WriteLine("Error: " + ex.Message);
                 return false;
             }
         }
         public bool CheckCredentials(string username, string password)
         {
-            
+
             if (username == "root")  //admin nao esta em uso para ja na db
             {
                 return false;
@@ -70,9 +70,9 @@ namespace POOprojeto
                     else
                     {
                         return false;
-                    }    
+                    }
                     //MessageBox.Show("Connection successful");
-                    
+
                 }
                 catch (MySqlException ex)
                 {
@@ -136,7 +136,7 @@ namespace POOprojeto
             {
                 connection.Open();
                 //vai procurar o nome apenas da table
-                string query = $"SELECT nome FROM cliente"; // Replace 'clients' with your actual table name
+                string query = $"SELECT nome FROM cliente";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 string columnName = "nome";
 
@@ -205,6 +205,72 @@ namespace POOprojeto
                     connection.Close();
                 }
             }
+        }
+        //cria uma lista para depois listar 
+        public List<Ticket> RetrieveTickets()
+        {
+            List<Ticket> tickets = new List<Ticket>();
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM Ticket";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            Console.WriteLine($"NomeCliente: {reader.GetString("NomeCliente")}"); //testar a ver se esta a ler
+                            Console.WriteLine($"TicketDescricao: {reader.GetString("TicketDescricao")}");
+                            Ticket ticket = new Ticket()
+                            {
+                                // Retrieve values only after calling Read()
+                                TicketId = reader.GetInt32("TicketId"),
+                                NomeCliente = reader.GetString("NomeCliente"),
+                                TicketDescricao = reader.GetString("TicketDescricao"),
+                                DataCriacao = reader.GetDateTime("DataCriacao"),
+                                Operador = reader.IsDBNull(reader.GetOrdinal("Operador")) ? null : reader.GetString("Operador"),
+                                TipoAssistencia = reader.GetString("TipoAssistencia"),
+                                EstadoAssistencia = reader.GetString("EstadoAssistencia")
+                            };
+                            tickets.Add(ticket);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error reading values: " + ex.Message);
+                            // Handle or log the exception as needed
+                        }
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                foreach (Ticket ticket in tickets)
+                {
+                    Console.WriteLine($"Ticket ID: {ticket.TicketId}");
+                    Console.WriteLine($"NomeCliente: {ticket.NomeCliente}");
+                    Console.WriteLine($"TicketDescricao: {ticket.TicketDescricao}");
+                    Console.WriteLine($"DataCriacao: {ticket.DataCriacao}");
+                    Console.WriteLine($"Operador: {ticket.Operador}");
+                    Console.WriteLine($"TipoAssistencia: {ticket.TipoAssistencia}");
+                    Console.WriteLine($"EstadoAssistencia: {ticket.EstadoAssistencia}");
+                    Console.WriteLine(); // Empty line for separation between tickets
+                }
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+
+            return tickets;
         }
     }
 }
