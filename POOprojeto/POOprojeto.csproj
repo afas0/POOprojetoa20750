@@ -114,64 +114,65 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddTicketForm.cs">
+    <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Forms\AddTicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTicketForm.Designer.cs">
+    <Compile Include="Forms\AddTicketForm.Designer.cs">
       <DependentUpon>AddTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AtribuirTicketForm.cs">
+    <Compile Include="Forms\AtribuirTicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AtribuirTicketForm.Designer.cs">
+    <Compile Include="Forms\AtribuirTicketForm.Designer.cs">
       <DependentUpon>AtribuirTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="AutenticacaoForm.cs">
+    <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="Classes\DatabaseConnection.cs" />
+    <Compile Include="Forms\AutenticacaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutenticacaoForm.Designer.cs">
+    <Compile Include="Forms\AutenticacaoForm.Designer.cs">
       <DependentUpon>AutenticacaoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceOperadorForm.cs">
+    <Compile Include="Forms\InterfaceOperadorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InterfaceOperadorForm.Designer.cs">
+    <Compile Include="Forms\InterfaceOperadorForm.Designer.cs">
       <DependentUpon>InterfaceOperadorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NovoClienteForm.cs">
+    <Compile Include="Forms\NovoClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NovoClienteForm.Designer.cs">
+    <Compile Include="Forms\NovoClienteForm.Designer.cs">
       <DependentUpon>NovoClienteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NovoOperadorForm.cs">
+    <Compile Include="Forms\NovoOperadorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NovoOperadorForm.Designer.cs">
+    <Compile Include="Forms\NovoOperadorForm.Designer.cs">
       <DependentUpon>NovoOperadorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operador.cs" />
+    <Compile Include="Classes\Operador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ticket.cs" />
-    <EmbeddedResource Include="AddTicketForm.resx">
+    <Compile Include="Classes\Ticket.cs" />
+    <EmbeddedResource Include="Forms\AddTicketForm.resx">
       <DependentUpon>AddTicketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AtribuirTicketForm.resx">
+    <EmbeddedResource Include="Forms\AtribuirTicketForm.resx">
       <DependentUpon>AtribuirTicketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutenticacaoForm.resx">
+    <EmbeddedResource Include="Forms\AutenticacaoForm.resx">
       <DependentUpon>AutenticacaoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceOperadorForm.resx">
+    <EmbeddedResource Include="Forms\InterfaceOperadorForm.resx">
       <DependentUpon>InterfaceOperadorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NovoClienteForm.resx">
+    <EmbeddedResource Include="Forms\NovoClienteForm.resx">
       <DependentUpon>NovoClienteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NovoOperadorForm.resx">
+    <EmbeddedResource Include="Forms\NovoOperadorForm.resx">
       <DependentUpon>NovoOperadorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

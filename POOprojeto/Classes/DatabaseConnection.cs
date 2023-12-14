@@ -272,5 +272,131 @@ namespace POOprojeto
 
             return tickets;
         }
+
+        public bool AddNewOperadorToDb(string nome, string especialidade)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO operador (nome, especialidade) VALUES (@nome, @especialidade)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@especialidade", especialidade);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        //atribur ticket
+        public bool AtribuirOperadorToDb(string nome, int id)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "UPDATE ticket SET operador = @newValue WHERE ticketid = @ticketid";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                
+
+                cmd.Parameters.AddWithValue("@newValue", nome);
+                cmd.Parameters.AddWithValue("@ticketid", id);
+
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+        }
+       
+        public List<Operador> RetrieveOperadores()
+        {
+            List<Operador> operadores = new List<Operador>();
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM operador";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            Operador operador = new Operador()
+                            {
+                                // Retrieve values only after calling Read()
+                                Id = reader.GetInt32("id"),
+                                Nome = reader.GetString("nome"),
+                            };
+                            operadores.Add(operador);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error reading values: " + ex.Message);
+                            // Handle or log the exception as needed
+                        }
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {                
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+
+            return operadores;
+        }
     }
 }

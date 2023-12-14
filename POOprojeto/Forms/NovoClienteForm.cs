@@ -17,7 +17,7 @@ namespace POOprojeto
         {
             InitializeComponent();
             DatabaseConnection connection = new DatabaseConnection();
-            cliente = new Cliente(connection);
+            cliente = new Cliente(connection); //para funcionar no try em baixo
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

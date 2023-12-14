@@ -23,14 +23,7 @@ namespace POOprojeto
             Contacto = contacto;
             ClienteId = clientetid;
         }
-        //add clientes info para a db
-        //ligação a DatabaseConnection Classe
-        //DatabaseConnection dbConnection = new DatabaseConnection();
-        //metodo para add cliente
-        //MySqlConnection connection = new MySqlConnection();
 
-        // Now you can use 'connectionString' in this class as needed
-        // For instance, you can create a MySqlConnection:
         private readonly DatabaseConnection dbConnection;
 
         public Cliente(DatabaseConnection connection)
@@ -39,9 +32,10 @@ namespace POOprojeto
         }
         public void AddCliente(string nome, string empresa, string contacto)
         {
-            dbConnection.AddNewClientToDb(nome, empresa, contacto);
-        }
-
-
+            if (!dbConnection.AddNewClientToDb(nome, empresa, contacto)) 
+            {
+                throw new Exception("Failed to add ticket to the database.");
+            };
+        }             
     }
 }
