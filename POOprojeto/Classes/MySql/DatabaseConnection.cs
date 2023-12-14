@@ -398,5 +398,43 @@ namespace POOprojeto
 
             return operadores;
         }
+
+        public bool AddNewProdutoToDb(string nome, string descricao)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO produto (nome, descricao) VALUES (@nome, @descricao)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@descricao", descricao);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace POOprojeto.Classes
         {
             dbConnection = connection;
         }
-        public void AddCliente(string nome, string descricao)
+        public void AddProduto(string nome, string descricao)
         {
             if (!dbConnection.AddNewProdutoToDb(nome, descricao))
             {

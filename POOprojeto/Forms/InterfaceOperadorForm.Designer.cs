@@ -36,6 +36,7 @@ namespace POOprojeto
             this.button1 = new System.Windows.Forms.Button();
             this.buttonAddTicket = new System.Windows.Forms.Button();
             this.listViewTicket = new System.Windows.Forms.ListView();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +56,7 @@ namespace POOprojeto
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button1);
@@ -124,6 +126,17 @@ namespace POOprojeto
             this.listViewTicket.View = System.Windows.Forms.View.Details;
             this.listViewTicket.SelectedIndexChanged += new System.EventHandler(this.listViewTicket_SelectedIndexChanged);
             // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button3.Location = new System.Drawing.Point(85, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(81, 66);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Add Produto";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // InterfaceOperadorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +164,6 @@ namespace POOprojeto
         private System.Windows.Forms.ListView listViewTicket;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

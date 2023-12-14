@@ -40,7 +40,7 @@ namespace POOprojeto
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(131, 116);
+            this.comboBox1.Location = new System.Drawing.Point(125, 142);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace POOprojeto
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 100);
+            this.label1.Location = new System.Drawing.Point(122, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace POOprojeto
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(131, 168);
+            this.comboBox2.Location = new System.Drawing.Point(125, 194);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 2;
@@ -65,7 +65,7 @@ namespace POOprojeto
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 152);
+            this.label2.Location = new System.Drawing.Point(122, 178);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 3;
@@ -73,7 +73,7 @@ namespace POOprojeto
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(131, 211);
+            this.button1.Location = new System.Drawing.Point(125, 237);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -91,7 +91,7 @@ namespace POOprojeto
             this.label3.TabIndex = 5;
             this.label3.Text = "Atribuir Ticket:";
             // 
-            // AtribuirTicket
+            // AtribuirTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +102,8 @@ namespace POOprojeto
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Name = "AtribuirTicket";
+            this.Name = "AtribuirTicketForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AtribuirTicket";
             this.ResumeLayout(false);
             this.PerformLayout();

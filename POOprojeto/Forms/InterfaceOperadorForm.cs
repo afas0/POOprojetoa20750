@@ -15,6 +15,7 @@ namespace POOprojeto
         private AddTicketForm addTicketForm;   //para o addTicketForm assumir valores
         private AtribuirTicketForm atribuirTicket;
         private NovoOperadorForm novoOperadorForm;
+        private Forms.AddProdutoForm addProdutoForm;
 
         public InterfaceOperadorForm()
         {           
@@ -111,6 +112,19 @@ namespace POOprojeto
             else
             {
                 novoOperadorForm.Focus();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (addProdutoForm == null || addProdutoForm.IsDisposed)
+            {
+                addProdutoForm = new Forms.AddProdutoForm();
+                addProdutoForm.Show();
+            }
+            else
+            {
+                addProdutoForm.Focus();
             }
         }
     }
