@@ -311,17 +311,17 @@ namespace POOprojeto
             }
         }
         //atribur ticket
-        public bool AtribuirOperadorToDb(string nome, int id)
+        public bool AtribuirOperadorToDb(string nome, int id, string estado)
         {
             try
             {
                 connection.Open();
 
-                string query = "UPDATE ticket SET operador = @newValue WHERE ticketid = @ticketid";
+                string query = "UPDATE ticket SET operador = @newValue, EstadoAssistencia = @newValueE WHERE ticketid = @ticketid";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                
 
                 cmd.Parameters.AddWithValue("@newValue", nome);
+                cmd.Parameters.AddWithValue("@newValueE", estado);
                 cmd.Parameters.AddWithValue("@ticketid", id);
 
 
@@ -436,5 +436,44 @@ namespace POOprojeto
                 }
             }
         }
+        public bool AddNewResolucaoProblemaToDb(string titulo, string descricao, string filepath)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO resolucaoproblema (titulo, descricao, filepath) VALUES (@titulo, @descricao, @filepath)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@titulo", titulo);
+                cmd.Parameters.AddWithValue("@descricao", descricao);
+                cmd.Parameters.AddWithValue("@filepath", filepath);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        
     }
 }

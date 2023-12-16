@@ -59,5 +59,13 @@ namespace POOprojeto
                 throw new Exception("Failed to add ticket to the database.");
             }
         }
+
+        public void AtribuirOperador(string nome, int id, string estado)
+        {
+            if (!dbConnection.AtribuirOperadorToDb(nome, id, estado))
+            {
+                throw new Exception("Failed to add ticket to the database.");
+            }
+        }
     }
 }

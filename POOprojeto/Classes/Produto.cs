@@ -31,7 +31,7 @@ namespace POOprojeto.Classes
         {
             if (!dbConnection.AddNewProdutoToDb(nome, descricao))
             {
-                throw new Exception("Failed to add ticket to the database.");
+                throw new Exception("Failed to add produto to the database.");
             };
         }
     }

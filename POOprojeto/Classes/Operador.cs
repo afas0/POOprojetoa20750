@@ -28,14 +28,6 @@ namespace POOprojeto
             {
                 throw new Exception("Failed to add ticket to the database.");
             }
-        }
-
-        public void AtribuirOperador(string nome, int id)
-        {
-            if (!dbConnection.AtribuirOperadorToDb(nome, id))
-            {
-                throw new Exception("Failed to add ticket to the database.");
-            }
-        }
+        }        
     }
 }
