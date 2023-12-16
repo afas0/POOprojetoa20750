@@ -17,6 +17,7 @@ namespace POOprojeto
         private NovoOperadorForm novoOperadorForm;
         private Forms.AddProdutoForm addProdutoForm;
         private Forms.AddResolucaoProblemaForm addResolucaoProblemaForm;
+        private Forms.EndTicketForm endTicketForm;
 
         public InterfaceOperadorForm()
         {           
@@ -139,6 +140,19 @@ namespace POOprojeto
             else
             {
                 addResolucaoProblemaForm.Focus();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (endTicketForm == null || endTicketForm.IsDisposed)
+            {
+                endTicketForm = new Forms.EndTicketForm();
+                endTicketForm.Show();
+            }
+            else
+            {
+                endTicketForm.Focus();
             }
         }
     }

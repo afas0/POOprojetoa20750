@@ -474,6 +474,46 @@ namespace POOprojeto
                 }
             }
         }
-        
+       
+        public bool AddNewAvaliacaoTicketToDb(int nota, int id, string estado)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "UPDATE ticket SET avaliacao = @newValue, estadoassistencia = @newValueE WHERE ticketid = @ticketid";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@newValue", nota);
+                cmd.Parameters.AddWithValue("@newValueE", estado);
+                cmd.Parameters.AddWithValue("@ticketid", id);
+                
+
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

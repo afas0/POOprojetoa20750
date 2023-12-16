@@ -150,6 +150,12 @@
     <Compile Include="Forms\AutenticacaoForm.Designer.cs">
       <DependentUpon>AutenticacaoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EndTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EndTicketForm.Designer.cs">
+      <DependentUpon>EndTicketForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InterfaceOperadorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutenticacaoForm.resx">
       <DependentUpon>AutenticacaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EndTicketForm.resx">
+      <DependentUpon>EndTicketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InterfaceOperadorForm.resx">
       <DependentUpon>InterfaceOperadorForm.cs</DependentUpon>
