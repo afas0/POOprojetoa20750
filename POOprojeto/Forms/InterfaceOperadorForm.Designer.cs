@@ -31,14 +31,15 @@ namespace POOprojeto
         {
             this.linkLabelHome = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonAddTicket = new System.Windows.Forms.Button();
             this.listViewTicket = new System.Windows.Forms.ListView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@ namespace POOprojeto
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
@@ -70,6 +72,39 @@ namespace POOprojeto
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1264, 66);
             this.panel1.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button6.Location = new System.Drawing.Point(288, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(80, 66);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "Ver Problemas Conhecidos";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button5.Location = new System.Drawing.Point(557, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(229, 66);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Terminar Assistencia";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button4.Location = new System.Drawing.Point(212, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(76, 66);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Add Resolucao Problema";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -92,6 +127,18 @@ namespace POOprojeto
             this.button2.Text = "Adicionar Operador";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::POOprojeto.Properties.Resources._3648091_200;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button1
             // 
@@ -129,40 +176,6 @@ namespace POOprojeto
             this.listViewTicket.View = System.Windows.Forms.View.Details;
             this.listViewTicket.SelectedIndexChanged += new System.EventHandler(this.listViewTicket_SelectedIndexChanged);
             // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.Location = new System.Drawing.Point(212, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 66);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Add Resolucao Problema";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::POOprojeto.Properties.Resources._3648091_200;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button5.Location = new System.Drawing.Point(557, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(229, 66);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Terminar Assistencia";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // InterfaceOperadorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +206,6 @@ namespace POOprojeto
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

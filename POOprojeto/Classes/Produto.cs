@@ -34,5 +34,9 @@ namespace POOprojeto.Classes
                 throw new Exception("Failed to add produto to the database.");
             };
         }
+        public Produto()
+        {
+
+        }
     }
 }

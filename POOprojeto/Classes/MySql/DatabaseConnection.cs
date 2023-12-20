@@ -436,19 +436,20 @@ namespace POOprojeto
                 }
             }
         }
-        public bool AddNewResolucaoProblemaToDb(string titulo, string descricao, string filepath)
+        public bool AddNewResolucaoProblemaToDb(string titulo, string descricao, string filepath, int produtoid)
         {
             try
             {
                 connection.Open();
 
-                string query = "INSERT INTO resolucaoproblema (titulo, descricao, filepath) VALUES (@titulo, @descricao, @filepath)";
+                string query = "INSERT INTO problema (titulo, descricao, documento, produtoid) VALUES (@titulo, @descricao, @documento, @produtoid)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 cmd.Parameters.AddWithValue("@titulo", titulo);
                 cmd.Parameters.AddWithValue("@descricao", descricao);
-                cmd.Parameters.AddWithValue("@filepath", filepath);
-
+                cmd.Parameters.AddWithValue("@documento", filepath);
+                cmd.Parameters.AddWithValue("@produtoid", produtoid);
+                
                 int rowsAffected = cmd.ExecuteNonQuery();
 
                 // Check if rows were affected by the query
@@ -514,6 +515,137 @@ namespace POOprojeto
                     connection.Close();
                 }
             }
+        }
+
+        public List<Classes.ResolucaoProblema> RetrieveProblemas()
+        {
+            List<Classes.ResolucaoProblema> problemas = new List<Classes.ResolucaoProblema>();
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM problema";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            Classes.ResolucaoProblema problema = new Classes.ResolucaoProblema()
+                            {
+                                // Retrieve values only after calling Read()
+                                IdProblema = reader.GetInt32("id"),
+                                Titulo = reader.GetString("titulo"),
+                                DescricaoProblema = reader.GetString("descricao"),
+                                Id = reader.GetInt32("produtoid")
+                                //FilePath = reader.GetString("filepath"),
+                            };
+                            problemas.Add(problema);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error reading values: " + ex.Message);
+                            // Handle or log the exception as needed
+                        }
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+
+            return problemas;
+        }
+
+        public List<Classes.Produto> RetrieveProdutos()
+        {
+            List<Classes.Produto> produtos = new List<Classes.Produto>();
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM produto";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            Classes.Produto produto = new Classes.Produto()
+                            {
+                                // Retrieve values only after calling Read()
+                                Id = reader.GetInt32("id"),
+                                Nome = reader.GetString("nome"),
+                                Descricao = reader.GetString("descricao"),
+                            };
+                            produtos.Add(produto);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error reading values: " + ex.Message);
+                            // Handle or log the exception as needed
+                        }
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+
+            return produtos;
+        }
+
+
+        public byte[] GetPdfFileFromDatabase(int id)
+        {
+            byte[] fileData = null;
+
+
+            string query = "SELECT documento FROM problema WHERE produtoid = @produtoid"; // Replace with your table and column names
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@produtoid", id);
+
+            try
+            {
+                connection.Open();
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        // Assuming the PDF file content is stored in a column named 'pdf_data'
+                        fileData = (byte[])reader["documento"];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                // Handle exceptions as needed
+            }
+
+            return fileData;
         }
     }
 }

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace POOprojeto.Classes
 {
-    public class ResolucaoProblema
+    public class ResolucaoProblema : Produto
     {
-        public int Id { get; set; }
+        public int IdProblema { get; set; }
         public string Titulo { get; set; }
-        public string Descricao { get; set; }
+        public string DescricaoProblema { get; set; }
         public string FilePath { get; set; }
 
         //construtor
         public ResolucaoProblema(int id, string titulo, string descricao, string filepath)
         {
-            Id = id;
+            IdProblema = id;
             Titulo = titulo;
-            Descricao = descricao;
+            DescricaoProblema = descricao;
             FilePath = filepath;
 
         }
@@ -29,9 +29,14 @@ namespace POOprojeto.Classes
         {
             dbConnection = connection;
         }
-        public void AddResolucaoProblema(string titulo, string descricao, string filepath)
+
+        public ResolucaoProblema()
         {
-            if (!dbConnection.AddNewResolucaoProblemaToDb(titulo, descricao, filepath))
+        }
+
+        public void AddResolucaoProblema(string titulo, string descricao, string filepath, int produtoid)
+        {
+            if (!dbConnection.AddNewResolucaoProblemaToDb(titulo, descricao, filepath, produtoid))
             {
                 throw new Exception("Failed to add resolucao de problema to the database.");
             };
