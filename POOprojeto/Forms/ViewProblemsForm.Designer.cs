@@ -61,7 +61,7 @@ namespace POOprojeto.Forms
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(609, 53);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(213, 21);
             this.comboBox1.TabIndex = 2;
             // 
             // richTextBox1
@@ -76,7 +76,7 @@ namespace POOprojeto.Forms
             // 
             this.button1.Location = new System.Drawing.Point(609, 91);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 23);
+            this.button1.Size = new System.Drawing.Size(62, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Ver";
             this.button1.UseVisualStyleBackColor = true;
@@ -84,17 +84,18 @@ namespace POOprojeto.Forms
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 26);
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(588, 538);
+            this.webBrowser1.Size = new System.Drawing.Size(588, 594);
             this.webBrowser1.TabIndex = 6;
             // 
             // ViewProblemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 594);
+            this.ClientSize = new System.Drawing.Size(834, 594);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);

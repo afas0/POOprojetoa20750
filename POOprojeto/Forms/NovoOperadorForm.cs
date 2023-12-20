@@ -13,15 +13,23 @@ namespace POOprojeto
     public partial class NovoOperadorForm : Form
     {
         private readonly Operador operador;
+        DatabaseConnection connection = new DatabaseConnection();
+
         public NovoOperadorForm()
         {
             InitializeComponent();
-            DatabaseConnection connection = new DatabaseConnection();
             operador = new Operador(connection); //para funcionar no try em baixo
+            List<Operador> listaOperadores = connection.RetrieveOperadores();
+            foreach (Operador item in listaOperadores)
+            {
+                comboBox1.Items.Add(item.Nome);
+            }            
+
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+            
+            private void button1_Click(object sender, EventArgs e)
         {
             
             string nome = textBox1.Text;
@@ -35,6 +43,50 @@ namespace POOprojeto
             catch
             {
                 MessageBox.Show("Failed to add operador. Please try again.");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            string nome = comboBox1.Text;
+            string especialidade = textBox3.Text;
+            int id = 0;
+            List<Operador> listaOperadores = connection.RetrieveOperadores();
+            foreach (Operador item in listaOperadores)
+            {
+                if (nome == item.Nome)
+                {
+                    id = item.Id;
+                    break;
+                }                          
+            }
+
+            try
+            {
+                operador.AlterarEspecialidade(especialidade, id);
+                MessageBox.Show("Alterado successfully.");
+            }
+            catch
+            {
+                MessageBox.Show("Failed to add alterar. Please try again.");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string nome = comboBox1.Text;
+            List<Operador> listaOperadores = connection.RetrieveOperadores();
+            foreach (Operador item in listaOperadores)
+            {
+                Console.WriteLine(item.Nome);
+                Console.WriteLine(item.Especialidade);
+                if (nome == item.Nome)
+                {
+                    string teste = item.Especialidade;
+                    textBox4.Text = item.Especialidade;
+                    break;
+                }
             }
         }
     }

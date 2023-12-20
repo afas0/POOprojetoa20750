@@ -372,6 +372,7 @@ namespace POOprojeto
                                 // Retrieve values only after calling Read()
                                 Id = reader.GetInt32("id"),
                                 Nome = reader.GetString("nome"),
+                                Especialidade = reader.GetString("especialidade"),
                             };
                             operadores.Add(operador);
                         }
@@ -646,6 +647,46 @@ namespace POOprojeto
             }
 
             return fileData;
+        }
+
+        
+        public bool AlterarEspecialidadeToDb(string especialidade, int id)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "UPDATE operador SET especialidade = @newValue WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@newValue", especialidade);
+                cmd.Parameters.AddWithValue("@id", id);
+
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Check if rows were affected by the query
+                if (rowsAffected > 0)
+                {
+                    return true; // Insert successful
+                }
+                else
+                {
+                    return false; // Insert failed
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false; // Insert failed due to exception
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }

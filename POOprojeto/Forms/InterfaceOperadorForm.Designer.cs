@@ -76,9 +76,9 @@ namespace POOprojeto
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button6.Location = new System.Drawing.Point(288, 0);
+            this.button6.Location = new System.Drawing.Point(311, 0);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(80, 66);
+            this.button6.Size = new System.Drawing.Size(91, 66);
             this.button6.TabIndex = 3;
             this.button6.Text = "Ver Problemas Conhecidos";
             this.button6.UseVisualStyleBackColor = true;
@@ -98,11 +98,11 @@ namespace POOprojeto
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.Location = new System.Drawing.Point(212, 0);
+            this.button4.Location = new System.Drawing.Point(224, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 66);
+            this.button4.Size = new System.Drawing.Size(87, 66);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Add Resolucao Problema";
+            this.button4.Text = "Adicionar Resolucao Problema";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -111,20 +111,21 @@ namespace POOprojeto
             this.button3.Dock = System.Windows.Forms.DockStyle.Left;
             this.button3.Location = new System.Drawing.Point(131, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(81, 66);
+            this.button3.Size = new System.Drawing.Size(93, 66);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Add Produto";
+            this.button3.Text = "Adicionar Produto/Serviço";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(46, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 66);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Adicionar Operador";
+            this.button2.Text = "Dados Operador\r\n";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

@@ -28,6 +28,13 @@ namespace POOprojeto
             {
                 throw new Exception("Failed to add ticket to the database.");
             }
-        }        
+        }
+        public void AlterarEspecialidade(string especialidade, int id)
+        {
+            if (!dbConnection.AlterarEspecialidadeToDb(especialidade, id))
+            {
+                throw new Exception("Failed to alterar especialidade to the database.");
+            }
+        }
     }
 }
