@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PdfiumViewer;
 using System.IO;
 
 
@@ -15,7 +14,6 @@ namespace POOprojeto.Forms
 {
     public partial class ViewProblemsForm : Form
     {
-        private readonly Classes.ResolucaoProblema resolucaoProblema;
 
         private byte[] pdfFileData;
         public void SetPdfFileData(byte[] fileData)

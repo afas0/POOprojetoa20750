@@ -12,7 +12,6 @@ namespace POOprojeto.Forms
 {
     public partial class EndTicketForm : Form
     {
-        private readonly Ticket ticket;
         private readonly Classes.AssistenciaAvaliacao avaliacao;
 
         public EndTicketForm()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -445,10 +446,11 @@ namespace POOprojeto
 
                 string query = "INSERT INTO problema (titulo, descricao, documento, produtoid) VALUES (@titulo, @descricao, @documento, @produtoid)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-
+                byte[] fileContent;
+                fileContent = File.ReadAllBytes(filepath);
                 cmd.Parameters.AddWithValue("@titulo", titulo);
                 cmd.Parameters.AddWithValue("@descricao", descricao);
-                cmd.Parameters.AddWithValue("@documento", filepath);
+                cmd.Parameters.AddWithValue("@documento", fileContent);
                 cmd.Parameters.AddWithValue("@produtoid", produtoid);
                 
                 int rowsAffected = cmd.ExecuteNonQuery();

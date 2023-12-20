@@ -39,7 +39,7 @@ namespace POOprojeto.Forms
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             // Propriedades
-            openFileDialog1.InitialDirectory = "C:\\"; // diretoria inicial
+            openFileDialog1.InitialDirectory = "C:/"; // diretoria inicial
             openFileDialog1.Filter = "PDF Files|*.pdf|Image Files|*.jpg;*.png|MP4 Files|*.mp4|All Files|*.*"; // Filtro
             openFileDialog1.RestoreDirectory = true; // Reset directory
 
@@ -51,6 +51,7 @@ namespace POOprojeto.Forms
             {
                 // Get the selected file name and display it
                 selectedFileName = openFileDialog1.FileName;
+                selectedFileName = selectedFileName.Replace("\\", "/");
                 MessageBox.Show("Selected file: " + selectedFileName);
                 button1.BackColor = Color.Red;
                 // You can use the 'selectedFileName' to work with the selected file in your application.
