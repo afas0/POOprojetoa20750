@@ -105,7 +105,7 @@ namespace POOprojeto
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "AtribuirTicketForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AtribuirTicket";
             this.ResumeLayout(false);
             this.PerformLayout();

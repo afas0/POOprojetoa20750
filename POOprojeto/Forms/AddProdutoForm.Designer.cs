@@ -103,6 +103,7 @@ namespace POOprojeto.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddProdutoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProdutoForm";
             this.ResumeLayout(false);
             this.PerformLayout();

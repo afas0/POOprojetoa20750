@@ -49,7 +49,7 @@ namespace POOprojeto.Forms
                 {
                     if (item.Titulo == nome)
                     {
-                        richTextBox1.Text = item.Descricao;
+                        richTextBox1.Text = item.DescricaoProblema;
                         byte[] pdfData = dbConnection.GetPdfFileFromDatabase(item.Id);
                         if (pdfData != null && pdfData.Length > 0)
                         {
@@ -72,6 +72,7 @@ namespace POOprojeto.Forms
                         {
                             MessageBox.Show("No PDF file data available.");
                         }
+                        break;
                     }
                 }
             }

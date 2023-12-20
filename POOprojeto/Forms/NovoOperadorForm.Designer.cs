@@ -189,6 +189,7 @@ namespace POOprojeto
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NovoOperadorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NovoOperadorForm";
             this.ResumeLayout(false);
             this.PerformLayout();

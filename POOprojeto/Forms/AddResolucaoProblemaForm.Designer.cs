@@ -124,7 +124,7 @@ namespace POOprojeto.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddResolucaoProblemaForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddResolucaoProblemaForm";
             this.ResumeLayout(false);
             this.PerformLayout();

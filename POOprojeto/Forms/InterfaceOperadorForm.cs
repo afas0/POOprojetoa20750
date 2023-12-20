@@ -19,6 +19,8 @@ namespace POOprojeto
         private Forms.AddResolucaoProblemaForm addResolucaoProblemaForm;
         private Forms.EndTicketForm endTicketForm;
         private Forms.ViewProblemsForm viewProblemsForm;
+        //private InterfaceOperadorForm interfaceOperadorForm;
+
 
         public InterfaceOperadorForm()
         {           
@@ -28,6 +30,7 @@ namespace POOprojeto
 
         private void buttonAddTicket_Click(object sender, EventArgs e)
         {
+            CloseOtherForms(addTicketForm);
             if (addTicketForm == null || addTicketForm.IsDisposed)
             {
                 addTicketForm = new AddTicketForm();                
@@ -78,6 +81,10 @@ namespace POOprojeto
             {
                 Console.WriteLine(ex.Message);
             }
+            foreach (ColumnHeader column in listViewTicket.Columns)
+            {
+                column.Width = -1; // Auto-size the column width to fit the content
+            }
         }
 
 
@@ -91,6 +98,7 @@ namespace POOprojeto
  
             if (atribuirTicket == null || atribuirTicket.IsDisposed)
             {
+                CloseOtherForms(atribuirTicket);
                 atribuirTicket = new AtribuirTicketForm();
                 atribuirTicket.Show();
             }
@@ -107,21 +115,37 @@ namespace POOprojeto
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (novoOperadorForm == null || novoOperadorForm.IsDisposed)
             {
-                novoOperadorForm = new NovoOperadorForm();
-                novoOperadorForm.Show();
+                
+                if (novoOperadorForm == null || novoOperadorForm.IsDisposed)
+                {
+                    CloseOtherForms(novoOperadorForm);
+                    novoOperadorForm = new NovoOperadorForm();
+                    novoOperadorForm.Show();
+                }
+                else
+                {
+                          
+                    novoOperadorForm = new NovoOperadorForm();
+                    novoOperadorForm.Show();
+                }
             }
             else
             {
                 novoOperadorForm.Focus();
             }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            
             if (addProdutoForm == null || addProdutoForm.IsDisposed)
             {
+                CloseOtherForms(addProdutoForm);
                 addProdutoForm = new Forms.AddProdutoForm();
                 addProdutoForm.Show();
             }
@@ -135,6 +159,7 @@ namespace POOprojeto
         {
             if (addResolucaoProblemaForm == null || addResolucaoProblemaForm.IsDisposed)
             {
+                CloseOtherForms(addResolucaoProblemaForm);
                 addResolucaoProblemaForm = new Forms.AddResolucaoProblemaForm();
                 addResolucaoProblemaForm.Show();
             }
@@ -148,6 +173,7 @@ namespace POOprojeto
         {
             if (endTicketForm == null || endTicketForm.IsDisposed)
             {
+                CloseOtherForms(endTicketForm);
                 endTicketForm = new Forms.EndTicketForm();
                 endTicketForm.Show();
             }
@@ -161,6 +187,7 @@ namespace POOprojeto
         {
             if (viewProblemsForm == null || viewProblemsForm.IsDisposed)
             {
+                CloseOtherForms(viewProblemsForm);
                 viewProblemsForm = new Forms.ViewProblemsForm();
                 viewProblemsForm.Show();
             }
@@ -170,6 +197,30 @@ namespace POOprojeto
             }
             
 
+        }
+
+        private void InterfaceOperadorForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CloseOtherForms(Form form)
+        {
+
+            List<Form> formsToClose = new List<Form>
+            {
+                viewProblemsForm, endTicketForm, addResolucaoProblemaForm,
+                addProdutoForm, atribuirTicket, addTicketForm, novoOperadorForm
+            };
+
+            // Close all other forms except the main form and the new form
+            foreach (Form formToClose in formsToClose)
+            {
+                if (formToClose != null)
+                {
+                    formToClose.Close();
+                }
+            }           
         }
     }
 }

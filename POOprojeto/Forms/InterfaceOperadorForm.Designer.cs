@@ -165,13 +165,12 @@ namespace POOprojeto
             // 
             // listViewTicket
             // 
-            this.listViewTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listViewTicket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewTicket.HideSelection = false;
             this.listViewTicket.Location = new System.Drawing.Point(0, 109);
             this.listViewTicket.Name = "listViewTicket";
-            this.listViewTicket.Size = new System.Drawing.Size(1264, 312);
+            this.listViewTicket.Size = new System.Drawing.Size(1264, 876);
             this.listViewTicket.TabIndex = 2;
             this.listViewTicket.UseCompatibleStateImageBehavior = false;
             this.listViewTicket.View = System.Windows.Forms.View.Details;
@@ -186,8 +185,9 @@ namespace POOprojeto
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkLabelHome);
             this.Name = "InterfaceOperadorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InterfaceOperadorForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.InterfaceOperadorForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
