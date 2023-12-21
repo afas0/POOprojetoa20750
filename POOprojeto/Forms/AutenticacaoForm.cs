@@ -35,6 +35,7 @@ namespace POOprojeto
             else
             {
                 MessageBox.Show("Invalid username or password.");
+                textBoxPassword.Clear();
             }
         }
     }

@@ -39,6 +39,8 @@ namespace POOprojeto
             {
                 operador.AddOperardor(nome, especialidade);
                 MessageBox.Show("Operador added successfully.");
+                textBox1.Clear();
+                textBox2.Clear();
             }
             catch
             {
@@ -66,6 +68,7 @@ namespace POOprojeto
             {
                 operador.AlterarEspecialidade(especialidade, id);
                 MessageBox.Show("Alterado successfully.");
+                textBox3.Clear();
             }
             catch
             {

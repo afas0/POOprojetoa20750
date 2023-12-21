@@ -52,9 +52,10 @@ namespace POOprojeto
             string ticketEstado = "Aberto";
             try
             {
-
                 ticket.AddTicket(ticketNome, ticketDescricao, ticketData, ticketTipo, ticketEstado);
                 MessageBox.Show("Ticket added successfully.");
+                richTextBox1.Clear();
+
             }
             catch (Exception ex)
             {

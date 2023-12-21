@@ -29,6 +29,9 @@ namespace POOprojeto
             {
                 cliente.AddCliente(clientenome, clienteempresa, clientecontacto);
                 MessageBox.Show("Client added successfully.");
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
             }
             catch
             {

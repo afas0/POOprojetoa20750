@@ -29,6 +29,8 @@ namespace POOprojeto.Forms
             {
                 produto.AddProduto(nome, descricao);
                 MessageBox.Show("Produto added successfully.");
+                textBox1.Clear();
+                richTextBox1.Clear();
             }
             catch
             {

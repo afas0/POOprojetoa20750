@@ -82,6 +82,8 @@ namespace POOprojeto.Forms
                     }
                     resolucaoProduto.AddResolucaoProblema(titulo, descricao, selectedFileName, produtoid);
                     MessageBox.Show("Resolucao de problema added successfully.");
+                    textBox1.Clear();
+                    richTextBox1.Clear();
                 }
                 catch
                 {
