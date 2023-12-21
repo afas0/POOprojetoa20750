@@ -217,6 +217,7 @@ namespace POOprojeto
                 connection.Open();
                 string query = "SELECT * FROM Ticket";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                // You need to pass a DatabaseConnection object here
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -226,6 +227,7 @@ namespace POOprojeto
                         {
                             Console.WriteLine($"NomeCliente: {reader.GetString("NomeCliente")}"); //testar a ver se esta a ler
                             Console.WriteLine($"TicketDescricao: {reader.GetString("TicketDescricao")}");
+
                             Ticket ticket = new Ticket()
                             {
                                 // Retrieve values only after calling Read()
@@ -235,7 +237,10 @@ namespace POOprojeto
                                 DataCriacao = reader.GetDateTime("DataCriacao"),
                                 Operador = reader.IsDBNull(reader.GetOrdinal("Operador")) ? null : reader.GetString("Operador"),
                                 TipoAssistencia = reader.GetString("TipoAssistencia"),
-                                EstadoAssistencia = reader.GetString("EstadoAssistencia")
+                                EstadoAssistencia = reader.GetString("EstadoAssistencia"),
+                                NotaAssistencia = reader.IsDBNull(reader.GetOrdinal("avaliacao")) ? (int?)null : reader.GetInt32("avaliacao"),
+
+
                             };
                             tickets.Add(ticket);
                         }
@@ -254,17 +259,7 @@ namespace POOprojeto
             }
             finally
             {
-                foreach (Ticket ticket in tickets)
-                {
-                    Console.WriteLine($"Ticket ID: {ticket.TicketId}");
-                    Console.WriteLine($"NomeCliente: {ticket.NomeCliente}");
-                    Console.WriteLine($"TicketDescricao: {ticket.TicketDescricao}");
-                    Console.WriteLine($"DataCriacao: {ticket.DataCriacao}");
-                    Console.WriteLine($"Operador: {ticket.Operador}");
-                    Console.WriteLine($"TipoAssistencia: {ticket.TipoAssistencia}");
-                    Console.WriteLine($"EstadoAssistencia: {ticket.EstadoAssistencia}");
-                    Console.WriteLine(); // Empty line for separation between tickets
-                }
+
                 if (connection.State != ConnectionState.Closed)
                 {
                     connection.Close();
@@ -273,7 +268,7 @@ namespace POOprojeto
 
             return tickets;
         }
-
+               
         public bool AddNewOperadorToDb(string nome, string especialidade)
         {
             try

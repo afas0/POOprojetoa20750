@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using POOprojeto.Classes;
 
 namespace POOprojeto
 {
@@ -26,6 +27,7 @@ namespace POOprojeto
 
         public string EstadoAssistencia { get; set; }
 
+        public int? NotaAssistencia { get; set; }
 
         // Constructor
         public Ticket(int ticketId, string nomeCliente, string ticketDescricao, DateTime dataCriacao, string operador, string tipoAssistencia, string estadoAssistencia)

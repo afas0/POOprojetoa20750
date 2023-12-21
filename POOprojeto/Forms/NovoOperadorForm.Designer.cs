@@ -153,7 +153,7 @@ namespace POOprojeto
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(364, 223);
+            this.textBox4.Location = new System.Drawing.Point(364, 233);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(138, 20);

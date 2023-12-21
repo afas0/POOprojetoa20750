@@ -53,6 +53,23 @@ namespace POOprojeto
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             List<Ticket> listaTickets = dbConnection.RetrieveTickets();
+            //List<Classes.AssistenciaAvaliacao> listaAvaliacao = dbConnection.RetrieveAvaliacao();
+            // Merge the lists into a list of tuples
+            //var mergedList = (from ticket in listaTickets
+            //                  join avaliacao in listaAvaliacao
+            //                  on ticket.TicketId equals avaliacao.TicketId into gj
+            //                  from subAvaliacao in gj.DefaultIfEmpty()
+            //                  select new
+            //                  {
+            //                      ticket.TicketId,
+            //                      ticket.NomeCliente,
+            //                      ticket.TicketDescricao,
+            //                      ticket.DataCriacao,
+            //                      ticket.Operador,
+            //                      ticket.TipoAssistencia,
+             //                     ticket.EstadoAssistencia,
+             //                     NotaAssistencia = subAvaliacao?.NotaAssistencia // Nullable
+              //                }).ToList();
             listViewTicket.Items.Clear(); //limpar quando der refresh
             listViewTicket.Columns.Clear();
             listViewTicket.Columns.Add("Ticket ID", 100);
@@ -62,11 +79,14 @@ namespace POOprojeto
             listViewTicket.Columns.Add("Operador", 100);
             listViewTicket.Columns.Add("Tipo Assistencia", 100);
             listViewTicket.Columns.Add("Estado Assistencia", 100);
+            listViewTicket.Columns.Add("Avaliação", 100);
 
             try
             {
                 foreach (Ticket item in listaTickets)
                 {
+                    Console.WriteLine(item.TicketId);
+                    Console.WriteLine(item.NomeCliente);
                     ListViewItem listViewItem = new ListViewItem(item.TicketId.ToString());
                     listViewItem.SubItems.Add(item.NomeCliente);
                     listViewItem.SubItems.Add(item.TicketDescricao);
@@ -74,8 +94,10 @@ namespace POOprojeto
                     listViewItem.SubItems.Add(item.Operador);
                     listViewItem.SubItems.Add(item.TipoAssistencia);
                     listViewItem.SubItems.Add(item.EstadoAssistencia);
+                    listViewItem.SubItems.Add(item.NotaAssistencia.ToString());
                     listViewTicket.Items.Add(listViewItem); // Add items to the ListView
                 }
+
             }
             catch (Exception ex)
             {

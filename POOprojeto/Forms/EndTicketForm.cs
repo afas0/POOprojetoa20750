@@ -22,7 +22,11 @@ namespace POOprojeto.Forms
             InitializeComponent();
             foreach (Ticket item in listaTickets)
             {
-                if (item.EstadoAssistencia != "Concluído e Resolvido")
+                if (item.EstadoAssistencia == "Concluído e Resolvido" || item.EstadoAssistencia == "Concluído e Não Resolvido")
+                {
+                    //do nothing
+                }
+                else
                 {
                     comboBox1.Items.Add(item.TicketId);
                 }

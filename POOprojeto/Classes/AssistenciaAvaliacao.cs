@@ -8,7 +8,7 @@ namespace POOprojeto.Classes
 {
     public class AssistenciaAvaliacao : Ticket
     {
-        public string NotaAssistencia { get; set; }
+
 
         private readonly DatabaseConnection dbConnection;
 
@@ -23,6 +23,9 @@ namespace POOprojeto.Classes
                 throw new Exception("Failed to endticket to the database.");
             };
         }
-
+        public AssistenciaAvaliacao()
+        {
+            // é necessario um constructer vazio para que na databaseconnection class a lista de retrieve tickets funciona Ticket ticket = new Ticket()
+        }
     }
 }
