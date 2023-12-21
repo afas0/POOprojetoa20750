@@ -19,7 +19,6 @@ namespace POOprojeto
         private Forms.AddResolucaoProblemaForm addResolucaoProblemaForm;
         private Forms.EndTicketForm endTicketForm;
         private Forms.ViewProblemsForm viewProblemsForm;
-        //private InterfaceOperadorForm interfaceOperadorForm;
 
 
         public InterfaceOperadorForm()
@@ -51,25 +50,9 @@ namespace POOprojeto
         //coloca itens na list liew
         private void PopulateListView()
         {
-            DatabaseConnection dbConnection = new DatabaseConnection();
+            Classes.ReadFromDb dbConnection = new Classes.ReadFromDb();
             List<Ticket> listaTickets = dbConnection.RetrieveTickets();
-            //List<Classes.AssistenciaAvaliacao> listaAvaliacao = dbConnection.RetrieveAvaliacao();
-            // Merge the lists into a list of tuples
-            //var mergedList = (from ticket in listaTickets
-            //                  join avaliacao in listaAvaliacao
-            //                  on ticket.TicketId equals avaliacao.TicketId into gj
-            //                  from subAvaliacao in gj.DefaultIfEmpty()
-            //                  select new
-            //                  {
-            //                      ticket.TicketId,
-            //                      ticket.NomeCliente,
-            //                      ticket.TicketDescricao,
-            //                      ticket.DataCriacao,
-            //                      ticket.Operador,
-            //                      ticket.TipoAssistencia,
-             //                     ticket.EstadoAssistencia,
-             //                     NotaAssistencia = subAvaliacao?.NotaAssistencia // Nullable
-              //                }).ToList();
+
             listViewTicket.Items.Clear(); //limpar quando der refresh
             listViewTicket.Columns.Clear();
             listViewTicket.Columns.Add("Ticket ID", 100);
@@ -85,8 +68,6 @@ namespace POOprojeto
             {
                 foreach (Ticket item in listaTickets)
                 {
-                    Console.WriteLine(item.TicketId);
-                    Console.WriteLine(item.NomeCliente);
                     ListViewItem listViewItem = new ListViewItem(item.TicketId.ToString());
                     listViewItem.SubItems.Add(item.NomeCliente);
                     listViewItem.SubItems.Add(item.TicketDescricao);
@@ -128,11 +109,6 @@ namespace POOprojeto
             {
                 atribuirTicket.Focus();
             }
-        }
-
-        private void linkLabelHome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -220,12 +196,6 @@ namespace POOprojeto
             
 
         }
-
-        private void InterfaceOperadorForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void CloseOtherForms(Form form)
         {
 

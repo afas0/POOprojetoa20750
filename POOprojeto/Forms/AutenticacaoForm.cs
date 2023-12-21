@@ -26,9 +26,6 @@ namespace POOprojeto
             if (dbConnector.CheckCredentials(username, password))
             {
                 MessageBox.Show("Login successful");
-                // Perform necessary actions or open the main application // Replace myForm with the actual instance of the form you want to close
-                //InterfaceOperadorForm form2 = new InterfaceOperadorForm();
-                //form2.Show();
                 this.Hide(); // Hide the current form
                 InterfaceOperadorForm form2 = new InterfaceOperadorForm();
                 form2.FormClosed += (s, args) => this.Close(); // Close the current form when the secondary form is closed

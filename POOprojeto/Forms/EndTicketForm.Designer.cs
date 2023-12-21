@@ -99,7 +99,6 @@ namespace POOprojeto.Forms
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Estado da Assistencia:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // comboBox1
             // 

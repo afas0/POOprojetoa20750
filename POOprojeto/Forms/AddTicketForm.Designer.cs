@@ -38,6 +38,8 @@ namespace POOprojeto
             this.buttonAddCliente = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +59,6 @@ namespace POOprojeto
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 4;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // richTextBox1
             // 
@@ -129,11 +130,23 @@ namespace POOprojeto
             this.comboBox3.Size = new System.Drawing.Size(263, 21);
             this.comboBox3.TabIndex = 12;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::POOprojeto.Properties.Resources._3648091_200;
+            this.pictureBox1.Location = new System.Drawing.Point(793, 383);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // AddTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonAddCliente);
@@ -146,7 +159,7 @@ namespace POOprojeto
             this.Name = "AddTicketForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTicketForm";
-            this.Load += new System.EventHandler(this.AddTicketForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +175,6 @@ namespace POOprojeto
         private System.Windows.Forms.Button buttonAddCliente;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

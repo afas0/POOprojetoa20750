@@ -15,25 +15,14 @@ namespace POOprojeto
         
         private NovoClienteForm novoClienteForm;   //para o addTicketForm assumir valores
         private readonly Ticket ticket;
-        DatabaseConnection dbConnection = new DatabaseConnection();
 
+        
         public AddTicketForm()
         {
-
-            // Create an instance of DatabaseConnection
-
-
-            // Call the RetrieveClientes method to retrieve the list of Clientes
-            List<string> listaNomesClientes = dbConnection.RetrieveClients();
-            foreach (var item in listaNomesClientes)
-            {
-                Console.WriteLine(item);  //depois apagar este foreach era so pa testarr
-            }
+            DatabaseConnection dbConnection = new DatabaseConnection();
             InitializeComponent();
-            comboBox2.DataSource = listaNomesClientes;
+            populatestuff();           
             ticket = new Ticket(dbConnection);
-
-
         }
 
         private void buttonAddCliente_Click(object sender, EventArgs e)
@@ -73,14 +62,16 @@ namespace POOprojeto
             }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            // do nothing yet
+            populatestuff();
         }
-
-        private void AddTicketForm_Load(object sender, EventArgs e)
+        private void populatestuff()
         {
-
+            Classes.ReadFromDb dbConnection = new Classes.ReadFromDb();
+            List<string> listaNomesClientes = dbConnection.RetrieveClients();
+            comboBox2.DataSource = listaNomesClientes;
         }
     }
 }

@@ -55,7 +55,6 @@ namespace POOprojeto
             this.linkLabelHome.TabIndex = 0;
             this.linkLabelHome.TabStop = true;
             this.linkLabelHome.Text = "Call Center";
-            this.linkLabelHome.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelHome_LinkClicked);
             // 
             // panel1
             // 
@@ -187,7 +186,6 @@ namespace POOprojeto
             this.Name = "InterfaceOperadorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InterfaceOperadorForm";
-            this.Load += new System.EventHandler(this.InterfaceOperadorForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

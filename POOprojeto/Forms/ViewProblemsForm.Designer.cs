@@ -105,7 +105,6 @@ namespace POOprojeto.Forms
             this.Name = "ViewProblemsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewProblemsForm";
-            this.Load += new System.EventHandler(this.ViewProblemsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,11 +20,6 @@ namespace POOprojeto.Forms
             produto = new Classes.Produto(connection); //para funcionar no try em baixo
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string nome = textBox1.Text;
@@ -33,7 +28,7 @@ namespace POOprojeto.Forms
             try
             {
                 produto.AddProduto(nome, descricao);
-                MessageBox.Show("Produo added successfully.");
+                MessageBox.Show("Produto added successfully.");
             }
             catch
             {

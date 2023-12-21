@@ -13,7 +13,7 @@ namespace POOprojeto
     public partial class NovoOperadorForm : Form
     {
         private readonly Operador operador;
-        DatabaseConnection connection = new DatabaseConnection();
+        readonly Classes.ReadFromDb connection = new Classes.ReadFromDb();
 
         public NovoOperadorForm()
         {
@@ -29,7 +29,7 @@ namespace POOprojeto
         }
 
             
-            private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             
             string nome = textBox1.Text;
@@ -83,7 +83,6 @@ namespace POOprojeto
                 Console.WriteLine(item.Especialidade);
                 if (nome == item.Nome)
                 {
-                    string teste = item.Especialidade;
                     textBox4.Text = item.Especialidade;
                     break;
                 }

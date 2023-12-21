@@ -15,33 +15,22 @@ namespace POOprojeto.Forms
     public partial class ViewProblemsForm : Form
     {
 
-        private byte[] pdfFileData;
-        public void SetPdfFileData(byte[] fileData)
-        {
-            pdfFileData = fileData;
-        }
+        readonly Classes.ReadFromDb dbConnection = new Classes.ReadFromDb();
 
         public ViewProblemsForm()
         {
-            InitializeComponent();
-            DatabaseConnection dbConnection = new DatabaseConnection();
+            InitializeComponent();            
             List<Classes.ResolucaoProblema> listaProblemas = dbConnection.RetrieveProblemas();
             foreach (Classes.ResolucaoProblema item in listaProblemas)
             {
                 comboBox1.Items.Add(item.Titulo);
             }
 
-
-        }
-        private void ViewProblemsForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string nome = comboBox1.Text;
-            DatabaseConnection dbConnection = new DatabaseConnection();
             List<Classes.ResolucaoProblema> listaProblemas = dbConnection.RetrieveProblemas();
             try
             {
@@ -82,11 +71,5 @@ namespace POOprojeto.Forms
             }
 
         }
-
-
-
-
-
-
     }
 }

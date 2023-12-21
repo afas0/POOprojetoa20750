@@ -15,7 +15,7 @@ namespace POOprojeto.Forms
         private readonly Classes.ResolucaoProblema resolucaoProduto;
         private string selectedFileName;
         private readonly Classes.Produto produto;
-        DatabaseConnection connection = new DatabaseConnection();
+        readonly Classes.ReadFromDb connection = new Classes.ReadFromDb();
         public AddResolucaoProblemaForm()
         {
             InitializeComponent();
@@ -54,7 +54,6 @@ namespace POOprojeto.Forms
                 selectedFileName = selectedFileName.Replace("\\", "/");
                 MessageBox.Show("Selected file: " + selectedFileName);
                 button1.BackColor = Color.Red;
-                // You can use the 'selectedFileName' to work with the selected file in your application.
             }
 
         }

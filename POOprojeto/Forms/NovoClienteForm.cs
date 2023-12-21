@@ -22,8 +22,6 @@ namespace POOprojeto
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            //DatabaseConnection dbConnection = new DatabaseConnection();
-
             string clientenome = textBox1.Text;
             string clienteempresa = textBox2.Text;
             string clientecontacto = textBox3.Text;

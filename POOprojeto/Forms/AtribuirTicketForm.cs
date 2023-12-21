@@ -15,10 +15,11 @@ namespace POOprojeto
         
         
         private readonly Ticket ticket;
+       
         public AtribuirTicketForm()
         {
             InitializeComponent();
-            DatabaseConnection dbConnection = new DatabaseConnection();
+            Classes.ReadFromDb dbConnection = new Classes.ReadFromDb();
             ticket = new Ticket(dbConnection); // é preciso para dar no operador em baixo no try
             List<Ticket> listaTickets = dbConnection.RetrieveTickets();
             List<Operador> listaOperadores = dbConnection.RetrieveOperadores();

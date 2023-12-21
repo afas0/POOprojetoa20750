@@ -20,12 +20,9 @@ namespace POOprojeto.Classes
         {
             if (!dbConnection.AddNewAvaliacaoTicketToDb(nota, id, estado))
             {
-                throw new Exception("Failed to endticket to the database.");
+                throw new Exception("Failed to Adicionar avaliacao to the database.");
             };
         }
-        public AssistenciaAvaliacao()
-        {
-            // é necessario um constructer vazio para que na databaseconnection class a lista de retrieve tickets funciona Ticket ticket = new Ticket()
-        }
+
     }
 }

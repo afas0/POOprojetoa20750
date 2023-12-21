@@ -16,8 +16,7 @@ namespace POOprojeto.Forms
 
         public EndTicketForm()
         {
-            // Call the RetrieveClientes method to retrieve the list of Clientes
-            DatabaseConnection dbConnection = new DatabaseConnection();
+            Classes.ReadFromDb dbConnection = new Classes.ReadFromDb();
             List<Ticket> listaTickets = dbConnection.RetrieveTickets();          
             InitializeComponent();
             foreach (Ticket item in listaTickets)
@@ -32,18 +31,9 @@ namespace POOprojeto.Forms
                 }
             }
 
-            avaliacao = new Classes.AssistenciaAvaliacao(dbConnection); //ver se é preciso
+            avaliacao = new Classes.AssistenciaAvaliacao(dbConnection); //é preciso
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
