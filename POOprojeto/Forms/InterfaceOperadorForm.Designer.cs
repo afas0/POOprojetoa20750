@@ -75,20 +75,20 @@ namespace POOprojeto
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button6.Location = new System.Drawing.Point(311, 0);
+            this.button6.Location = new System.Drawing.Point(351, 0);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(91, 66);
+            this.button6.Size = new System.Drawing.Size(132, 66);
             this.button6.TabIndex = 3;
-            this.button6.Text = "Ver Problemas Conhecidos";
+            this.button6.Text = "Ver Documentos/Problemas";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button5.Location = new System.Drawing.Point(557, 0);
+            this.button5.Location = new System.Drawing.Point(625, 0);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(229, 66);
+            this.button5.Size = new System.Drawing.Size(215, 66);
             this.button5.TabIndex = 7;
             this.button5.Text = "Terminar Assistencia";
             this.button5.UseVisualStyleBackColor = true;
@@ -97,20 +97,20 @@ namespace POOprojeto
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.Location = new System.Drawing.Point(224, 0);
+            this.button4.Location = new System.Drawing.Point(231, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 66);
+            this.button4.Size = new System.Drawing.Size(120, 66);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Adicionar Resolucao Problema";
+            this.button4.Text = "Adicionar Documento/Problema";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.Location = new System.Drawing.Point(131, 0);
+            this.button3.Location = new System.Drawing.Point(137, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 66);
+            this.button3.Size = new System.Drawing.Size(94, 66);
             this.button3.TabIndex = 5;
             this.button3.Text = "Adicionar Produto/Serviço";
             this.button3.UseVisualStyleBackColor = true;
@@ -122,9 +122,9 @@ namespace POOprojeto
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(46, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 66);
+            this.button2.Size = new System.Drawing.Size(91, 66);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Dados Operador\r\n";
+            this.button2.Text = "Adicionar/Editar Operadores";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -135,7 +135,7 @@ namespace POOprojeto
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(46, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -143,9 +143,9 @@ namespace POOprojeto
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(786, 0);
+            this.button1.Location = new System.Drawing.Point(840, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 66);
+            this.button1.Size = new System.Drawing.Size(211, 66);
             this.button1.TabIndex = 2;
             this.button1.Text = "Atribuir Operador";
             this.button1.UseVisualStyleBackColor = true;
@@ -154,9 +154,9 @@ namespace POOprojeto
             // buttonAddTicket
             // 
             this.buttonAddTicket.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonAddTicket.Location = new System.Drawing.Point(1019, 0);
+            this.buttonAddTicket.Location = new System.Drawing.Point(1051, 0);
             this.buttonAddTicket.Name = "buttonAddTicket";
-            this.buttonAddTicket.Size = new System.Drawing.Size(245, 66);
+            this.buttonAddTicket.Size = new System.Drawing.Size(213, 66);
             this.buttonAddTicket.TabIndex = 2;
             this.buttonAddTicket.Text = "Add Ticket";
             this.buttonAddTicket.UseVisualStyleBackColor = true;

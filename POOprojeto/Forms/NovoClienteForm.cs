@@ -27,11 +27,19 @@ namespace POOprojeto
             string clientecontacto = textBox3.Text;
             try 
             {
-                cliente.AddCliente(clientenome, clienteempresa, clientecontacto);
-                MessageBox.Show("Client added successfully.");
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
+                if (!string.IsNullOrEmpty(clientenome) && !string.IsNullOrEmpty(clienteempresa) && !string.IsNullOrEmpty(clientecontacto) )
+                {
+                    cliente.AddCliente(clientenome, clienteempresa, clientecontacto);
+                    MessageBox.Show("Client added successfully.");
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Campos em Branco. Please try again.");
+                }
+                
             }
             catch
             {

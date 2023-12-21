@@ -27,10 +27,17 @@ namespace POOprojeto.Forms
 
             try
             {
-                produto.AddProduto(nome, descricao);
-                MessageBox.Show("Produto added successfully.");
-                textBox1.Clear();
-                richTextBox1.Clear();
+                if (!string.IsNullOrEmpty(nome) && !string.IsNullOrEmpty(descricao))
+                {
+                    produto.AddProduto(nome, descricao);
+                    MessageBox.Show("Produto added successfully.");
+                    textBox1.Clear();
+                    richTextBox1.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Campos em Branco. Please try again.");
+                }
             }
             catch
             {

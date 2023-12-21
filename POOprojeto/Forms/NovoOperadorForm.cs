@@ -37,10 +37,18 @@ namespace POOprojeto
 
             try
             {
-                operador.AddOperardor(nome, especialidade);
-                MessageBox.Show("Operador added successfully.");
-                textBox1.Clear();
-                textBox2.Clear();
+                if (!string.IsNullOrEmpty(nome) && !string.IsNullOrEmpty(especialidade))
+                {
+                    operador.AddOperardor(nome, especialidade);
+                    MessageBox.Show("Operador added successfully.");
+                    textBox1.Clear();
+                    textBox2.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Campos em Branco. Please try again.");
+                }
+                
             }
             catch
             {
@@ -66,9 +74,17 @@ namespace POOprojeto
 
             try
             {
-                operador.AlterarEspecialidade(especialidade, id);
-                MessageBox.Show("Alterado successfully.");
-                textBox3.Clear();
+                if (!string.IsNullOrEmpty(nome) && !string.IsNullOrEmpty(especialidade))
+                {
+                    operador.AlterarEspecialidade(especialidade, id);
+                    MessageBox.Show("Alterado successfully.");
+                    textBox3.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Campos em Branco. Please try again.");
+                }
+                
             }
             catch
             {
@@ -82,8 +98,6 @@ namespace POOprojeto
             List<Operador> listaOperadores = connection.RetrieveOperadores();
             foreach (Operador item in listaOperadores)
             {
-                Console.WriteLine(item.Nome);
-                Console.WriteLine(item.Especialidade);
                 if (nome == item.Nome)
                 {
                     textBox4.Text = item.Especialidade;

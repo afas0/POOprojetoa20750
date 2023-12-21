@@ -44,8 +44,16 @@ namespace POOprojeto
             string ticketEstado = "Em andamento";
             try
             {
-                ticket.AtribuirOperador(nome, id, ticketEstado);
-                MessageBox.Show("Updated successfully.");
+                if (!string.IsNullOrEmpty(nome))
+                {
+                    ticket.AtribuirOperador(nome, id, ticketEstado);
+                    MessageBox.Show("Updated successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Campos em Branco. Please try again.");
+                }
+                
             }
             catch
             {

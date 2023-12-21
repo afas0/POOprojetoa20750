@@ -80,10 +80,18 @@ namespace POOprojeto.Forms
                         }
 
                     }
-                    resolucaoProduto.AddResolucaoProblema(titulo, descricao, selectedFileName, produtoid);
-                    MessageBox.Show("Resolucao de problema added successfully.");
-                    textBox1.Clear();
-                    richTextBox1.Clear();
+                    if (!string.IsNullOrEmpty(titulo) && !string.IsNullOrEmpty(descricao))
+                    {
+                        resolucaoProduto.AddResolucaoProblema(titulo, descricao, selectedFileName, produtoid);
+                        MessageBox.Show("Resolucao de problema added successfully.");
+                        textBox1.Clear();
+                        richTextBox1.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Campos em Branco. Please try again.");
+                    }
+                    
                 }
                 catch
                 {

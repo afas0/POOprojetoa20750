@@ -41,7 +41,7 @@ namespace POOprojeto.Forms
             int id = int.Parse(comboBox1.Text);
             string estado = comboBox2.Text;
             try
-            {
+            {               
                 avaliacao.AddAvaliacaoTicket(nota, id, estado);
                 MessageBox.Show("Ticket terminado successfully.");
             }
