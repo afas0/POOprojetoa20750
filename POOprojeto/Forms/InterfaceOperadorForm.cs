@@ -28,10 +28,10 @@ namespace POOprojeto
         }
 
         private void buttonAddTicket_Click(object sender, EventArgs e)
-        {
-            CloseOtherForms(addTicketForm);
+        {          
             if (addTicketForm == null || addTicketForm.IsDisposed)
             {
+                CloseOtherForms(addTicketForm);
                 addTicketForm = new AddTicketForm();                
                 addTicketForm.Show();
             }
@@ -39,8 +39,7 @@ namespace POOprojeto
             {
                 addTicketForm.Focus();
             }
-
-            
+           
         }
 
         private void listViewTicket_SelectedIndexChanged(object sender, EventArgs e)

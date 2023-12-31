@@ -50,7 +50,7 @@ namespace POOprojeto
 
         public Ticket()
         {
-            // é necessario um constructer vazio para que na databaseconnection class a lista de retrieve tickets funciona Ticket ticket = new Ticket()
+            // é necessario um constructer vazio para que na databaseconnection class a lista de retrieve tickets funcione Ticket ticket = new Ticket()
         }
 
         public void AddTicket(string nomeCliente, string ticketDescricao, DateTime dataCriacao, string tipoAssistencia, string estadoAssistencia)
